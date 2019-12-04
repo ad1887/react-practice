@@ -7,6 +7,9 @@ import AddUser from './AddUser';
 
 class App extends React.Component {
   render() {
+    // store.subscribe(() => {
+    //   console.log('first store data:', store.getState());
+    // });
     return (
       <div>
         <Header />

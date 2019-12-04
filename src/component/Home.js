@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Home extends Component {
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  };
+};
+class Home extends Component {
   render() {
+    console.log('store data:', this.props.data);
     return (
         <div>
           <h2>Home</h2>
@@ -10,3 +17,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps)(Home);

@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import addUserAction from "../actions/user";
 
-export default class AddUser extends React.Component {
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  };
+};
+class AddUser extends React.Component {
     arr = [];
+    
     constructor(props) {
       super(props);
-      this.state = {
-        data: [
-          { firstname: "kevin", lastname: "jobs" },
-          { firstname: "martin", lastname: "hopes" },
-          { firstname: "brian", lastname: "lara" }
-        ]
-      };
+      
       this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit = (e) => {
       e.preventDefault();
-      let defaultStateData = this.state.data;
       let formData = {};
       formData.firstname = e.target.firstname.value || '';
       formData.lastname = e.target.lastname.value || '';
-      defaultStateData.unshift(formData);
-      this.setState({'data': defaultStateData});
+      this.props.addUserAction(formData);
     }
     render() {
+      console.log(this.props.data);
       return (
         <div>
           <h3>Content Section</h3>
-          <UserForm data={this.state.data} handleSubmit={this.handleSubmit} />
+          <UserForm data={this.props.data} handleSubmit={this.handleSubmit} />
           <div>
             <h4>Users List</h4>
-            {this.state.data.map((data, i) => (
+            {this.props.data.map((data, i) => (
               <List key={i} data={data} dataIndex={i+1} />
             ))}
           </div>
@@ -38,6 +39,7 @@ export default class AddUser extends React.Component {
     }
   }
 
+  export default connect(mapStateToProps, {addUserAction})(AddUser);
   class List extends React.Component {
     render() {
       return (
