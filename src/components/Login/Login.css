@@ -1,0 +1,69 @@
+/*----- Login Page -----*/
+.login-form-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 20% auto;
+    animation: fadeInAnimation ease 4s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+}
+.login-form-wrapper .row {
+    border: 1px solid #f7efef;
+    border-radius: 38px 0;
+    box-shadow: -6px 0 8px -3px #ebdcdc, 5px 0 9px -3px #ebdcdc;
+    -moz-box-shadow: -6px 0 8px -3px #ebdcdc, 5px 0 9px -3px #ebdcdc;
+    -webkit-box-shadow: -6px 0 8px -3px #ebdcdc, 5px 0 9px -3px #ebdcdc;
+    background-color: whitesmoke;
+}
+.login-form-wrapper .col {
+    padding: 30px;
+}
+.login-form-wrapper h4 {
+    padding-bottom: 15px;
+}
+.fa-cog {
+    font-size: 20px;
+}
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
+/* iPhone 5 (portrait and landscape)----------- */
+@media (min-width : 480px)
+and (max-width: 568px) {
+    .login-form-wrapper {
+        width: 60%;
+    }
+}
+
+@media (min-width: 568px)
+and (max-width: 768px) {
+    .login-form-wrapper {
+        width: 50%;
+    }
+}
+
+@media (min-width : 768px)
+and (max-width: 1024px) {
+    .login-form-wrapper {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px)
+and (max-width: 1366px) {
+    .login-form-wrapper {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1366px) {
+    .login-form-wrapper {
+        width: 28%;
+    }
+}

@@ -1,0 +1,57 @@
+/*----- Dashboard Page -----*/
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.header {
+    background-color: #dfdfdf;
+    padding: 20px;
+}
+.header .settings {
+    text-align: right;
+}
+aside ul {
+    list-style-type: none;
+    padding: 12px;
+    margin-bottom: 0;
+}
+aside ul li {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #9180df;
+    margin-bottom: 6px;
+    background-color: #9180df;
+    box-shadow: 3px 3px 3px 0 #ebdcdc;
+    border-radius: 4px;
+}
+aside ul li a {
+    color: #fff;
+}
+aside ul li:hover {
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 3px 3px 3px 0 #ebdcdc;
+    border-radius: 4px;
+}
+aside ul li:hover a {
+    color: #9180df;
+    text-decoration: none;
+}
+.footer {
+    background-color: #ada4d8;
+    padding: 20px;
+    /* width: 100%;
+    position: fixed;
+    bottom: 0; */
+}
+.dashContent article {
+    color: #9180df;
+    padding: 5px;
+}
+.pageTitle{
+    color: #9180df;
+    margin-bottom: 10px;
+}
+.wrapper .row {
+    margin: 0;
+}

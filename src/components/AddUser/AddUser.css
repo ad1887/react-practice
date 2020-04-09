@@ -1,0 +1,12 @@
+/*----- User Reg Page -----*/
+.reg-form-wrapper .submitBtn {
+    padding-left: 0;
+}
+.error {
+    color: red;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #cccccc;
+    border: 1px solid #cccccc;
+    cursor: default;
+}

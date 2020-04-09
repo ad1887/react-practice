@@ -7,7 +7,7 @@ const mapStateToProps = state => {
     data: state.data
   };
 };
-class AddUser extends React.Component {
+class CreateUser extends React.Component {
     arr = [];
     
     constructor(props) {
@@ -39,7 +39,7 @@ class AddUser extends React.Component {
     }
   }
 
-  export default connect(mapStateToProps, {addUserAction})(AddUser);
+  export default connect(mapStateToProps, {addUserAction})(CreateUser);
   class List extends React.Component {
     render() {
       return (
