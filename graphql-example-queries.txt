@@ -1,0 +1,26 @@
+# Write your query or mutation here
+query getAllUser
+  {
+    allUser {
+      firstname
+      lastname
+      username
+      email
+      phone
+      password
+    }
+  }
+  
+mutation createUser
+{
+  addUser(firstname:"test12", lastname:"user12", email:"test12@test.com", 
+    phone:"8685685456", username:"testuser12", password:"password123#") {
+    firstname
+    lastname
+    username
+    email
+    phone
+    password
+  }
+}
+

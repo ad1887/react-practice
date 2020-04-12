@@ -4,7 +4,8 @@ import Footer from '../../templates/Footer.jsx';
 import SideMenu from '../../templates/SideMenu.jsx';
 import UserRegForm from '../../templates/UserRegForm.jsx';
 import './AddUser.css';
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql, useQuery } from '@apollo/client';
+import { ApolloProvider, useQuery } from '@apollo/react-hooks';
+import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client';
 import { Row, Col, Table } from 'react-bootstrap/';
 
 const client = new ApolloClient({
@@ -13,7 +14,7 @@ const client = new ApolloClient({
         uri: 'http://localhost:4000/graphql',
     })
 });
-const currency = "USD";  
+// const currency = "USD";  
 // const EXCHANGE_RATES = gql`
 // query getRates($currency: String!)
 //   {
@@ -41,28 +42,29 @@ const currency = "USD";
 //   ));
 // }
 
-const EXCHANGE_RATES = gql`
+const GET_USERS = gql`
 query getAllUser
   {
     allUser {
       firstname
       lastname
       username
+      password
       email
       phone
     }
   }
 `;
 
-function ExchangeRates() {
-  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+function UsersList() {
+  const { loading, error, data } = useQuery(GET_USERS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-  let srNo = 1;
+  if (loading) return <tr><td>Loading...</td></tr>;
+  if (error) return <tr><td>Error :(</td></tr>;
+  let srNo = 0;
   return data.allUser.map(({ firstname, lastname, username, email, phone }) => (
-    <tr>
-      <td>{srNo++}</td>
+    <tr key={++srNo}>
+      <td>{srNo}</td>
       <td>{firstname}</td>
       <td>{lastname}</td>
       <td>{username}</td>
@@ -73,9 +75,6 @@ function ExchangeRates() {
 }
 
 class AddUser extends React.Component {
-    constructor() {
-      super();
-    }
     render() {
         return(
             <div>
@@ -84,12 +83,12 @@ class AddUser extends React.Component {
                     <section>
                       <div className="row">
                         <div className="col-xs-4 col-md-3 col-lg-2">
-                            <SideMenu />
+                          <SideMenu />
                         </div>
                         <div className="col-xs-8 col-md-9 col-lg-10">
-                            <ApolloProvider client={client}>
-                                <UserRegForm />
-                            </ApolloProvider>
+                          <ApolloProvider client={client}>
+                            <UserRegForm />
+                          </ApolloProvider>
                         </div>
                       </div>
                     </section>
@@ -109,7 +108,7 @@ class AddUser extends React.Component {
                               </tr>
                             </thead>
                             <tbody>
-                              <ExchangeRates />
+                              <UsersList />
                             </tbody>
                           </Table>
                           </ApolloProvider>
